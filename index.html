@@ -60,20 +60,10 @@ function __show_qrcode(){
 		}
 		
 		canvas.width = size;
-		canvas.height = size;
-		
+		canvas.height = size;		
 		
 		var ctx2d = canvas.getContext("2d")
-
-		for (r = 0; r < qr.getModuleCount(); r += 1) {
-			for (c = 0; c < qr.getModuleCount(); c += 1) {
-				if (qr.isDark(r, c) ) {
-					ctx2d.fillRect(c*cellSize+margin,r*cellSize+margin,cellSize,cellSize)
-				}
-				else {
-				}
-			}
-		}
+		qr.renderTo2dContext(ctx2d,cellSize)
 		
 		return canvas;
 	}
